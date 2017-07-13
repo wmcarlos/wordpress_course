@@ -26,11 +26,11 @@ function three_add_related_posts($content){
 		return $content;
 	}
 
-	$categories = get_the_terms( get_the_ID(),'category' );
+	$categories = get_the_terms(get_the_ID(),'category');
 
 	$categoriesIds = array();
 
-	foreach($categories AS $category){
+	foreach($categories as $category){
 		$categoriesIds[] = $category->term_id;
 	}
 
@@ -45,7 +45,6 @@ function three_add_related_posts($content){
 	if($loop->have_posts()){
 
 		$content .= "Related Post: <br><ul>";
-
 		while($loop->have_posts()){
 			$loop->the_post();
 			$content.="<li><a href='".get_permalink()."'>".get_the_title()."</a></li>";
